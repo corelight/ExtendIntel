@@ -1,0 +1,5 @@
+[package]
+description = A Zeek package to extend logging for Intel
+tags = intel
+script_dir = scripts
+version = 1.0
