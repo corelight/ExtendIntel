@@ -14,21 +14,21 @@ export {
   redef record Info += {
     ## The description or source of the intel.
     desc: set[string] &optional &log &default=string_set();
-    ## The URL to find more information about the IOC.
+    ## The URL to find more information about the indicator.
     url: set[string] &optional &log &default=string_set();
-    ## The confidence score, based on the source in the description, that this is an IOC.
+    ## IC-Score: A 0-100 rating, representing the source of the intel's confidence that a particular indicator represents malicious activity.
     confidence: set[double] &optional &log &default=set();
-    ## The first time this IOC was observed by any of the listed sources.
+    ## The first time this indicator was observed by any of the listed sources.
     firstseen: set[string] &optional &log &default=string_set();
-    ## The most recent time this IOC was observed by any of the listed sources.
+    ## The most recent time this indicator was observed by any of the listed sources.
     lastseen: set[string] &optional &log &default=string_set();
-    ## A list of actors associated with this IOC.
+    ## A list of actors associated with this indicator.
     associated: set[string] &optional &log &default=string_set();
-    ## A list of categories, as defined by the source, for this IOC.
+    ## A list of categories, as defined by the source, for this indicator.
     category: set[string] &optional &log &default=string_set();
-    ## A list of any known campaigns related to the IOC.
+    ## A list of any known campaigns related to the indicator.
     campaigns: set[string] &optional &log &default=string_set();
-    ## A list of any reports relavent to the IOC.
+    ## A list of any reports relavent to the indicator.
     reports: set[string] &optional &log &default=string_set();
   };
 }
