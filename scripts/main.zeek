@@ -12,15 +12,23 @@ export {
   };
 
   redef record Info += {
-    ##
+    ## The description or source of the intel.
     desc: set[string] &optional &log &default=string_set();
+    ## The URL to find more information about the IOC.
     url: set[string] &optional &log &default=string_set();
+    ## The confidence score, based on the source in the description, that this is an IOC.
     confidence: set[double] &optional &log &default=set();
+    ## The first time this IOC was observed by any of the listed sources.
     firstseen: set[string] &optional &log &default=string_set();
+    ## The most recent time this IOC was observed by any of the listed sources.
     lastseen: set[string] &optional &log &default=string_set();
+    ## A list of actors associated with this IOC.
     associated: set[string] &optional &log &default=string_set();
+    ## A list of categories, as defined by the source, for this IOC.
     category: set[string] &optional &log &default=string_set();
+    ## A list of any known campaigns related to the IOC.
     campaigns: set[string] &optional &log &default=string_set();
+    ## A list of any reports relavent to the IOC.
     reports: set[string] &optional &log &default=string_set();
   };
 }
