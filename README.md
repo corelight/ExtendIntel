@@ -1,6 +1,21 @@
 # ExtendIntel
 This package extends the Intel package to log more fields
 
+If the intel file contains the following fields, the data will automatically be added to the intel.log.
+
+  - threat_score
+  - verdict
+  - verdict_source
+  - confidence
+  - desc
+  - lastseen
+  - firstseen
+  - url
+  - reports
+  - campaigns
+  - associated
+  - category
+
 Intel log
 ---------
 
