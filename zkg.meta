@@ -1,5 +1,5 @@
 [package]
-description = v3.0 - A Zeek package to extend logging for Intel
+description = v4.0 - A Zeek package to extend logging for Intel
 tags = intel
 script_dir = scripts
-version = 3.0
+version = 4.0

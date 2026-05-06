@@ -15,6 +15,7 @@ If the intel file contains the following fields, the data will automatically be 
   - campaigns
   - associated
   - category
+  - kill_chain_phases
 
 Intel log
 ---------
@@ -67,4 +68,5 @@ If the ExtendIntel Zeek package is loaded, the intel.log will be enriched with a
         "exploit",
         "exploit/vuln-scanning, exploit"
       ],
+      "kill_chain_phases": [],
     }
