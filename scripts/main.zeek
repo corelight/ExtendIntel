@@ -21,7 +21,7 @@ export {
     url: set[string] &optional &log;
     ## IC-Score: A 0-100 rating, representing the source of the intel's confidence that a particular indicator represents malicious activity.
     confidence: set[double] &optional &log;
-    ## Theat Score is an analytical score from 0-100 that reflects the likelihood of a threat being malicious to an organization.  It is based on Intelligence factors such as threat severity and confidence.
+    ## Threat Score is an analytical score from 0-100 that reflects the likelihood of a threat being malicious to an organization.  It is based on Intelligence factors such as threat severity and confidence.
     threat_score: set[double] &optional &log;
     ## The verdict tells you if the determination was malicious or benign.
     verdict: set[string] &optional &log;
@@ -37,8 +37,10 @@ export {
     category: set[string] &optional &log;
     ## A list of any known campaigns related to the indicator.
     campaigns: set[string] &optional &log;
-    ## A list of any reports relavent to the indicator.
+    ## A list of any reports relevant to the indicator.
     reports: set[string] &optional &log;
+    ## A list of Kill Chain Phases relevant to the indicator.
+    kill_chain_phases: set[string] &optional &log;
   };
 }
 
@@ -103,6 +105,11 @@ hook extend_match(info: Info, s: Seen, items: set[Item]) &priority=5 {
       if ( !info?$reports)
         info$reports=string_set();
       add info$reports[item$meta$reports];
+    }
+    if ( item$meta?$kill_chain_phases) {
+      if ( !info?$kill_chain_phases)
+        info$kill_chain_phases=string_set();
+      add info$kill_chain_phases[item$meta$kill_chain_phases];
     }
   }
 }
