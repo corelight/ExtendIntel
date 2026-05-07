@@ -12,6 +12,7 @@ export {
     category: string &optional;
     campaigns: string &optional;
     reports: string &optional;
+    kill_chain_phases: string &optional;
   };
 
   redef record Info += {
