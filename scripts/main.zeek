@@ -2,8 +2,8 @@ module Intel;
 
 export {
   redef record Intel::MetaData +={
-    confidence: double &optional;
-    threat_score: double &optional;
+    confidence: string &optional;
+    threat_score: string &optional;
     verdict: string &optional;
     verdict_source: string &optional;
     firstseen: string &optional;
@@ -21,9 +21,9 @@ export {
     ## The URL to find more information about the indicator.
     url: set[string] &optional &log;
     ## IC-Score: A 0-100 rating, representing the source of the intel's confidence that a particular indicator represents malicious activity.
-    confidence: set[double] &optional &log;
+    confidence: set[string] &optional &log;
     ## Threat Score is an analytical score from 0-100 that reflects the likelihood of a threat being malicious to an organization.  It is based on Intelligence factors such as threat severity and confidence.
-    threat_score: set[double] &optional &log;
+    threat_score: set[string] &optional &log;
     ## The verdict tells you if the determination was malicious or benign.
     verdict: set[string] &optional &log;
     ## The verdict tells you if the verdict was determined by machine learning or an analyst.
@@ -59,12 +59,12 @@ hook extend_match(info: Info, s: Seen, items: set[Item]) &priority=5 {
     }
     if ( item$meta?$confidence ) {
       if ( !info?$confidence)
-        info$confidence=set();
+        info$confidence=string_set();
       add info$confidence[item$meta$confidence];
     }
     if ( item$meta?$threat_score ) {
       if ( !info?$threat_score)
-        info$threat_score=set();
+        info$threat_score=string_set();
       add info$threat_score[item$meta$threat_score];
     }
     if ( item$meta?$verdict ) {
